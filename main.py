@@ -4,9 +4,14 @@ import torch
 from utils.data_preprocessing import load_and_preprocess_data
 from models.classifier import PyTorchDNNClassifier
 import pickle
+import joblib
+
 
 def main():
     X, y = load_and_preprocess_data('data/descriptors.npy', 'data/labels.npy')
+    
+    joblib.dump(pca, 'pca_model.pkl')
+    joblib.dump(scaler, 'scaler_model.pkl')
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 

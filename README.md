@@ -1,6 +1,6 @@
 # Deep Neural Network Classifier
 
-This project contains a deep neural network classifier implemented using PyTorch. The classifier is used for binary classification tasks.
+This project contains a deep neural network classifier implemented using PyTorch. The classifier is used for binary classification tasks (can pass, or can not pass BBB)
 
 ## Project Structure
 

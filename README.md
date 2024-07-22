@@ -28,8 +28,15 @@ This project contains a deep neural network classifier implemented using PyTorch
 
 ## Usage
 
-To train and evaluate the model, run:
+To train the model, run:
 
 ```bash
-python main.py
+python train.py
+```
+
+To evaluate your molecules, run:
+
+```
+python predict.py
+```
 

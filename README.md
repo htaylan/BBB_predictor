@@ -15,8 +15,8 @@ This project contains a deep neural network classifier implemented using PyTorch
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/dnn-classifier.git
-    cd dnn-classifier
+    git clone https://github.com/htaylan/BBB_predictor.git
+    cd BBB_predictor
     ```
 
 2. Install dependencies:

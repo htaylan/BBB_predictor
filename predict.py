@@ -55,13 +55,10 @@ def predict_bbb(input_descriptors: pd.DataFrame, model_path: str) -> np.ndarray:
     model.load_state_dict(torch.load(model_path))
     model.eval()
 
-
     scaler = StandardScaler()
     scaled_descriptors = scaler.fit_transform(input_descriptors.to_numpy())
 
-
     inputs = torch.tensor(scaled_descriptors, dtype=torch.float32)
-
 
     with torch.no_grad():
         outputs = model(inputs)
@@ -76,23 +73,15 @@ def run_prediction(smiles_file: str, model_path: str) -> None:
         smiles_file (str): Path to the .smi file containing SMILES strings
         model_path (str): Path to the trained model .pth file
     """
-    # Load SMILES from file
+  
     smiles_list = load_smiles(smiles_file)
-
-    # Convert SMILES to descriptors
     descriptors = smiles_to_descriptors(smiles_list)
-
-    #Preprocess_descriptors
     preprocessed_descriptors = preprocess_descriptors(descriptors)
-
-    # Run predictions
     predictions = predict_bbb(preprocessed_descriptors, model_path)
 
-    # Create DataFrame with results
     results = pd.DataFrame({'SMILES': smiles_list, 'Predicted_class': predictions})
     results['Predicted_class'] = results['Predicted_class'].map({1: 'Pass', 0: 'Fail'})
 
-    # Save results to CSV
     results.to_csv('BBB_predictions.csv', index=False)
     print("Predictions saved to BBB_predictions.csv")
 

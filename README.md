@@ -1,4 +1,4 @@
-# Deep Neural Network Classifier
+# BBB Classifier
 
 This project contains a deep neural network classifier implemented using PyTorch. The classifier is used for binary classification tasks (can pass, or can not pass BBB)
 
